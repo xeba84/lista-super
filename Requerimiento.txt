@@ -10,9 +10,10 @@
 3-Darle estilo "Google" (material.ui) a la pantalla
     -Perfilar para usar en mobile
 
---------------------------------------------------------------------------------------
-
 2a-Subir a GIT
+    -Leer sobre Git un poco más che!
+
+--------------------------------------------------------------------------------------
 
 4-Integrar con Redux
 
