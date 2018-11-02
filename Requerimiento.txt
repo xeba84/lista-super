@@ -1,0 +1,85 @@
+1-Generar pantalla de "Agregar Producto" en React "puro"
+    ->Botón Agregar:BtnAdd + TextBox descripción:TxtDesc + Lista de Productos:LstProd
+    ->Desarrollar los "eventos" con "burbujeo"
+    ->Generar Container del ABM de Producto
+    ->Realizar modificaciones con State en ProductAdd.js
+    ->Convertir Snackbar en componente
+
+2b-Permitir quitar un Producto de la Lista
+
+3-Darle estilo "Google" (material.ui) a la pantalla
+    -Perfilar para usar en mobile
+
+--------------------------------------------------------------------------------------
+
+2a-Subir a GIT
+
+4-Integrar con Redux
+
+5-Integar con Sagas/Thunk (cuál?)
+
+6-Persistir la Lista de Productos... cómo? Node.js?... qué API?
+    -Investigar sobre servidores de DB + servicios... la Nube?
+    -Publicar la app sin persistencia?
+
+_______________________________________________________________________________________
+PANTALLAS:
+(*)Menu... integrado tipo mobile
+
+(*)Gestion de Usuarios -> Users
+    AMB básico de usuario+pass
+    Roles para "generar listas" o sólo usarlas...
+
+(*)Maestro de Productos -> ProductAddList
+    Compuesto por un TextBox + Botón + Lista "Deleteable"
+
+(*)Armado de Lista -> MakeProductBuyList
+    Compuesto por dos Listas: La "maestra" y la Editable->Add+Del
+    Guarda por fecha + Usuario + Id autonum
+
+(*)Lista de Compras -> BuyList
+    Lista "checkeable" de las compras
+
+(*)Mis Listas -> MyLists
+    Listado de las Listas generadas
+
+
+_______________________________________________________________________________________
+ARQUITECTURA EJEMPLO -> CARPETAS
+├── actions
+│   ├── comment.actions.js
+│   └── post.actions.js
+├── components
+│   ├── comment
+│   |   ├── Comment.js
+│   |   ├── comment.css
+│   |   └── Comment.spec.js
+│   ├── comments
+│   |   ├── Comments.js
+│   |   ├── comments.css
+│   |   └── Comments.spec.js
+│   ├── post
+│   |   ├── Post.js
+│   |   ├── post.css
+│   |   └── Post.spec.js
+├── constants
+│   ├── comment.types.js
+│   └── post.types.js
+├── views
+│   ├── home
+│   |   ├── Home.js
+│   |   ├── home.css
+│   |   └── Home.spec.js
+│   ├── posts
+│   |   ├── Posts.js
+│   |   ├── posts.css
+│   |   └── Posts.spec.js
+│   ├── about
+│   |   └── ...
+├── index.js
+├── reducers
+│   ├── comment.reducer.js
+│   └── post.reducer.js
+└── router
+    └── router.js
+
