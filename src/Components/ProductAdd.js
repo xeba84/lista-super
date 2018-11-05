@@ -14,25 +14,21 @@ class ProductAdd extends Component {
         this.state = { product: this.titleCase(props.product) }
     };
 
-    componentDidMount() {
-        //console.log("componentDidMount");
-    }
-    
+
+    /*Manejando el cambio con componentWillReceiveProps es más sencillo que con componentDidUpdate*/
     componentWillReceiveProps(nextProps) {
         //console.log("componentWillReceiveProps");
         this.setState( { product: nextProps.product } );
     }    
     
     componentDidUpdate(prevProps, prevState) {
-        //console.log("componentDidUpdate");
-        /*if (this.state.product !== this.props.product){
-            console.log("cambio estado producto")
-            this.setState({product:this.titleCase(this.props.product)});
-        }*/
-    }
-
-    componentWillUnmount() {
-        //console.log("componentWillUnmount");
+        /*
+        console.log("ProductAdd->componentDidUpdate");
+        console.log("prev->" + prevProps.product);
+        console.log("act->" + this.props.product);
+        console.log("prevState->" + prevState.product);
+        console.log("actState->" + this.state.product);
+        */
     }
 
     render() { 

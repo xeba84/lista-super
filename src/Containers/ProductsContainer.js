@@ -4,12 +4,14 @@ import ProductAdd from '../Components/ProductAdd';
 import InfoMessage from '../Components/Message/InfoMessage';
 import './Container.css';
 
+const productLst = ["Pan", "Leche", "Galletitas", "Puré", "Arroz", "Yoghurt", "Tapa De Tarta"];
+
 class ProductsContainer extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            productLst: ["Pan", "Leche", "Galletitas", "Puré", "Arroz", "Yoghurt", "Tapa De Tarta"],
+            productLst: productLst.sort(this.sortProductList),
             product: "",
             showEmptyMessage: false,
             showExistMessage: false,
@@ -33,6 +35,7 @@ class ProductsContainer extends Component {
             if (this.state.productLst.indexOf(text) < 0) {
                 var newProductList = this.state.productLst.slice();
                 newProductList.push(text);
+                newProductList.sort(this.sortProductList);
                 this.setState({ product: "", showEmptyMessage: false, showExistMessage: false, productLst: newProductList });
             } else {
                 this.setState({ product: text, showEmptyMessage: false, showExistMessage: true });    
@@ -47,6 +50,8 @@ class ProductsContainer extends Component {
         newProductList.splice(index,1);
         this.setState({ productLst: newProductList, showEmptyMessage: false, showExistMessage: false, });
     };
+
+    sortProductList = (a,b) => (a<b) ? -1 : 1;
 }
 
 export default ProductsContainer;

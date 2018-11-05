@@ -45,7 +45,7 @@ class InfoMessage extends Component {
     };    
 
     handleMessageClose = () => {
-        console.log("handleMessageClose");
+        //console.log("handleMessageClose");
         this.setState({ showMessage: false });
     };
 }

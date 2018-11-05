@@ -11,7 +11,7 @@
     -Perfilar para usar en mobile
 
 2a-Subir a GIT
-    -Leer sobre Git un poco más che!
+    -Leer sobre Git un poco más che!... aprende sobre la marcha :)
 
 --------------------------------------------------------------------------------------
 
