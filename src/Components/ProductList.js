@@ -12,12 +12,6 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 class ProductList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = { productLst: props.productLst };
-        this.myOnRemoveProduct = this.props.onRemoveProduct;
-    }
-
     render() {
         return (
             <div 
@@ -29,17 +23,14 @@ class ProductList extends Component {
         );
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ productLst: nextProps.productLst });
-    }
-    
-
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate() {
         this.myDiv.scrollTop = this.myDiv.scrollHeight;        
     }
 
     renderList = () => {
-        const productLst = this.state.productLst.map((product, index) => this.renderItem(product, index));
+        const { products } = this.props;        
+        const productLst = products.map((product, index) => 
+                this.renderItem(product, index));
         return (
             productLst.length > 0 && 
             <List dense>
@@ -50,6 +41,7 @@ class ProductList extends Component {
     };
 
     renderItem = (product, index) => {
+        const { onRemoveProduct } = this.props;
         return (
             <ListItem key={product} divider={true}>
                 <ListItemAvatar>
@@ -59,7 +51,7 @@ class ProductList extends Component {
                 </ListItemAvatar>
                 <label style={{ fontFamily: 'Roboto' }}>&nbsp;{product}</label>
                 <ListItemSecondaryAction>
-                    <IconButton onClick={() => this.myOnRemoveProduct(index)} aria-label="Delete">
+                    <IconButton onClick={() => onRemoveProduct(index)} aria-label="Delete">
                         <DeleteIcon />
                     </IconButton>
                 </ListItemSecondaryAction>
@@ -70,7 +62,7 @@ class ProductList extends Component {
 
 ProductList.propTypes = {
     onRemoveProduct: PropTypes.func.isRequired,
-    productLst: PropTypes.array.isRequired
+    products: PropTypes.array.isRequired
 };
 
 export default ProductList;

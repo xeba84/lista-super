@@ -1,57 +1,60 @@
 import React, { Component } from 'react';
-import ProductList from '../Components/ProductList';
-import ProductAdd from '../Components/ProductAdd';
-import InfoMessage from '../Components/Message/InfoMessage';
+import { connect } from 'react-redux';
+import ProductList from '../components/ProductList';
+import ProductAdd from '../components/ProductAdd';
+import InfoMessage from '../components/Message/InfoMessage';
 import './Container.css';
-
-const productLst = ["Pan", "Leche", "Galletitas", "Puré", "Arroz", "Yoghurt", "Tapa De Tarta"];
+import { addProduct, showInfoMessage, removeProduct } from '../actions/index';
+import { InfoMessages } from '../constants/messages'
 
 class ProductsContainer extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            productLst: productLst.sort(this.sortProductList),
-            product: "",
-            showEmptyMessage: false,
-            showExistMessage: false,
-        };
-    }
-
     render() {
-        //console.log(this.state);
+        const { products, infoMessage, onInfoMessageClose, removeProduct } = this.props;       
         return (
             <div className="Container">
-                <ProductList onRemoveProduct={this.onRemoveProduct} productLst={this.state.productLst} />
-                <ProductAdd onAddProduct={this.onAddProduct} product={this.state.product} />
-                <InfoMessage showMessage={this.state.showEmptyMessage} message="Por Favor Escriba un Nombre de Producto" />
-                <InfoMessage showMessage={this.state.showExistMessage} message="El Producto ya Existe" />
+                <ProductList onRemoveProduct={removeProduct} products={products} />
+                <ProductAdd onAddProduct={this.handleAddProduct} />
+                <InfoMessage onInfoMessageClose={onInfoMessageClose} message={infoMessage} />           
             </div>
         );
     }
 
-    onAddProduct = (text) => {
+    handleAddProduct = (text) => {
+        var res = false;
+        const { products, addProduct, showInfoMessage } = this.props;
         if (text) {
-            if (this.state.productLst.indexOf(text) < 0) {
-                var newProductList = this.state.productLst.slice();
-                newProductList.push(text);
-                newProductList.sort(this.sortProductList);
-                this.setState({ product: "", showEmptyMessage: false, showExistMessage: false, productLst: newProductList });
+            if (products.indexOf(text) < 0) {
+                addProduct(text);
+            res = true;            
             } else {
-                this.setState({ product: text, showEmptyMessage: false, showExistMessage: true });    
+                showInfoMessage(InfoMessages.MSG_DUPLICATED_PRODUCT);
             }
         } else {
-            this.setState({ showEmptyMessage: true, showExistMessage: false, product: "" });
+            showInfoMessage(InfoMessages.MSG_EMPTY_PRODUCT);
         }
+        return res;        
     };
 
-    onRemoveProduct = (index) => {
-        var newProductList = this.state.productLst.slice();        
-        newProductList.splice(index,1);
-        this.setState({ productLst: newProductList, showEmptyMessage: false, showExistMessage: false, });
-    };
-
-    sortProductList = (a,b) => (a<b) ? -1 : 1;
+    handleRemoveProduct = (index) => {
+        const { removeProduct } = this.props;
+        removeProduct(index);
+    };    
 }
 
-export default ProductsContainer;
+const mapStateToProps = state => {
+    return {
+        products: state.products,
+        infoMessage: state.messages.infoMessage,
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        addProduct: text => { dispatch(addProduct(text)) },
+        removeProduct: index => { dispatch(removeProduct(index)) },
+        showInfoMessage: message => { dispatch(showInfoMessage(message)) },
+        onInfoMessageClose: () => { dispatch(showInfoMessage("")) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer);

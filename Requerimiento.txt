@@ -14,6 +14,8 @@
     -Leer sobre Git un poco más che!... aprende sobre la marcha :)
 
 --------------------------------------------------------------------------------------
+const State = { products:[], newProduct="", infoMessage="" };
+--------------------------------------------------------------------------------------
 
 4-Integrar con Redux
 

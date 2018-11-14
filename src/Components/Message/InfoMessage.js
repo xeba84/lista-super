@@ -6,29 +6,15 @@ import InfoIcon from '@material-ui/icons/Info';
 
 class InfoMessage extends Component {    
 
-    constructor(props) {
-        super(props);
-        this.state = { showMessage: props.showMessage, message: props.message };
-    };
-
-    componentDidUpdate(prevProps, prevState) {        
-        /*if (prevState.showMessage !== this.props.showMessage){
-            this.setState( { showMessage: this.props.showMessage});
-        }  */      
-    }
-    
-    componentWillReceiveProps(nextProps) {
-        this.setState( { showMessage: nextProps.showMessage});
-    }    
-
     render() {
+        const { onInfoMessageClose, message } = this.props;
         return (
             <div>
                 <Snackbar
                     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                     autoHideDuration={ 3000 }
-                    open={ this.state.showMessage }
-                    onClose={ this.handleMessageClose }
+                    open={ message !== "" }
+                    onClose={ onInfoMessageClose }
                 >
                     <SnackbarContent
                         style={{ backgroundColor: "#3700B3" }}
@@ -36,22 +22,18 @@ class InfoMessage extends Component {
                         message={
                             <span id="message-id" style={{ display: 'flex', alignItems: 'center', }}>
                                 <InfoIcon style={{ fontSize: 20, opacity: 0.9, marginRight: 10 }} />
-                                { this.state.message }
+                                { message }
                             </span>}
                     />
                 </Snackbar>
             </div>
         );
-    };    
-
-    handleMessageClose = () => {
-        //console.log("handleMessageClose");
-        this.setState({ showMessage: false });
     };
 }
 
 InfoMessage.propTypes = {
-    showMessage: PropTypes.bool.isRequired
+    onInfoMessageClose: PropTypes.func.isRequired,
+    message: PropTypes.string.isRequired
 };
 
 export default InfoMessage;
