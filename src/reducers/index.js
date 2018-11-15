@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import productsReducer from './productsReducer'
-import messagesReducer from './messagesReducer'
+import { popUpMessageReducer, loadingMessageReducer } from './messagesReducer'
 
 const allReducers = combineReducers({
     products: productsReducer,
-    messages: messagesReducer
+    popUpMessages: popUpMessageReducer,
+    loadingMessages: loadingMessageReducer
 });
 
 export default allReducers;

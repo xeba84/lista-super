@@ -45,7 +45,7 @@ class ProductsContainer extends Component {
 const mapStateToProps = state => {
     return {
         products: state.products,
-        infoMessage: state.messages.infoMessage,
+        infoMessage: state.popUpMessages.infoMessage,
     }
 }
 const mapDispatchToProps = dispatch => {

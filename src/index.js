@@ -12,7 +12,7 @@ const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && wi
 console.log(store.getState());
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App loadingMessages={store.getState().loadingMessages} />
     </Provider>, 
     document.getElementById('root')
     );
