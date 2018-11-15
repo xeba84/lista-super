@@ -15,9 +15,11 @@
 
 4-Integrar con Redux
 
-5-Integar con Sagas/Thunk (cuál?)
-    - Sagas -> método dummy para obtener la lista de productos que demore 3seg
-    - Mostrar spinner mientras "obtiene"
+
+5_a- Agregar spinner
+5_b- Crear Branch para la inclusión de Sagas
+5_c- Sagas -> método dummy para obtener la lista de productos que demore 3seg
+5_d- Mostrar spinner mientras "obtiene"
 
 6-Persistir la Lista de Productos... cómo? Node.js?... qué API?
     -Investigar sobre servidores de DB + servicios... la Nube?
