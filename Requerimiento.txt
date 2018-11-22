@@ -15,12 +15,13 @@
 
 4-Integrar con Redux
 
-5_a- Agregar spinner
-5_b- Crear Branch para la inclusión de Sagas
-5_c- Sagas -> método dummy para obtener la lista de productos que demore 3seg
-    Seteo mostar spinner true
-    Obtener datos Base
-    Seteo mostar spinner false
+5-Integrar con Sagas
+    a- Agregar spinner
+    b- Crear Branch para la inclusión de Sagas
+    c- método dummy para obtener la lista de productos que demore 3seg
+        Seteo mostar spinner true
+        Obtener datos Base
+        Seteo mostar spinner false
 
 6-Integrar con React-router
     a.Todas pantallas "Dummy" salvo la de ProductsContainer
