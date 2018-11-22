@@ -15,13 +15,23 @@
 
 4-Integrar con Redux
 
-
 5_a- Agregar spinner
 5_b- Crear Branch para la inclusión de Sagas
 5_c- Sagas -> método dummy para obtener la lista de productos que demore 3seg
-5_d- Mostrar spinner mientras "obtiene"
+    Seteo mostar spinner true
+    Obtener datos Base
+    Seteo mostar spinner false
 
-6-Persistir la Lista de Productos... cómo? Node.js?... qué API?
+6-Integrar con React-router
+    a.Todas pantallas "Dummy" salvo la de ProductsContainer
+    b.Agregar Tabs para su manejo.
+
+7-Agregar Pantalla de login
+    a."Robar" diseño de algún lado
+    b.Agregar AppBar para su manejo
+    c.Integrar con login fwim -> soap?
+
+8-Persistir la Lista de Productos... cómo? Node.js?... qué API?
     -Investigar sobre servidores de DB + servicios... la Nube?
     -Publicar la app sin persistencia?
 

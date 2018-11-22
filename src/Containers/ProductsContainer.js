@@ -10,8 +10,9 @@ import { InfoMessages } from '../constants/messages'
 class ProductsContainer extends Component {
 
     render() {
-        const { products, infoMessage, onInfoMessageClose, removeProduct } = this.props;       
+        const { products, infoMessage, onInfoMessageClose, removeProduct, isLoadingData } = this.props;       
         return (
+            !isLoadingData &&
             <div className="Container">
                 <ProductList onRemoveProduct={removeProduct} products={products} />
                 <ProductAdd onAddProduct={this.handleAddProduct} />
@@ -46,6 +47,7 @@ const mapStateToProps = state => {
     return {
         products: state.products,
         infoMessage: state.popUpMessages.infoMessage,
+        isLoadingData: state.loadingMessages.isLoadingData,
     }
 }
 const mapDispatchToProps = dispatch => {

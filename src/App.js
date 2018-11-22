@@ -1,30 +1,18 @@
 import React, { Component } from 'react';
-import { GridLoader } from 'react-spinners';
 import ProductsContainer from './containers/ProductsContainer';
+import Spinner from './components/Spinner';
 import './App.css';
 
 class App extends Component {
 
+  //TODO: add {this.props.children} when implement react-router
   render() {
-    const { loadingMessages } = this.props;
-    if (!loadingMessages.isLoadingData) {
-      return (
-        <div className="App">
-          <ProductsContainer />
-        </div>
-      )
-    } else {
-      return (
-        <div class="center">
-            <GridLoader
-              size={40}
-              color={'#123abc'}
-              loading={true}
-            />
-            <h2>Cargando...</h2>
-        </div>
-      )
-    }
+    return (
+      <div className="App">
+        <ProductsContainer />
+        <Spinner />
+      </div>
+    )
   }
 }
 
