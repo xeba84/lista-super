@@ -3,21 +3,33 @@ import { connect } from 'react-redux';
 import ProductList from '../components/ProductList';
 import ProductAdd from '../components/ProductAdd';
 import InfoMessage from '../components/Message/InfoMessage';
-import './Container.css';
-import { addProduct, showInfoMessage, removeProduct } from '../actions/index';
-import { InfoMessages } from '../constants/messages'
+import './../styles/Container.css';
+import { addProduct, showInfoMessage, removeProduct, apiLoadBaseProducts } from '../actions/index';
+import { InfoMessages } from '../constants/messages';
+import TabRouter from './../components/TabRouter';
+import Spinner from './../components/Spinner';
 
 class ProductsContainer extends Component {
 
+    componentDidMount() {
+        const { apiLoadBaseProducts, products } = this.props;
+        if (products && products.length === 0) {
+            apiLoadBaseProducts();
+        }        
+    }
+    
     render() {
         const { products, infoMessage, onInfoMessageClose, removeProduct, isLoadingData } = this.props;       
         return (
-            !isLoadingData &&
+            !isLoadingData ?
             <div className="Container">
                 <ProductList onRemoveProduct={removeProduct} products={products} />
                 <ProductAdd onAddProduct={this.handleAddProduct} />
                 <InfoMessage onInfoMessageClose={onInfoMessageClose} message={infoMessage} />           
+                <TabRouter path={this.props.match.path} />                
             </div>
+            :
+            <Spinner />
         );
     }
 
@@ -55,7 +67,8 @@ const mapDispatchToProps = dispatch => {
         addProduct: text => { dispatch(addProduct(text)) },
         removeProduct: index => { dispatch(removeProduct(index)) },
         showInfoMessage: message => { dispatch(showInfoMessage(message)) },
-        onInfoMessageClose: () => { dispatch(showInfoMessage("")) }
+        onInfoMessageClose: () => { dispatch(showInfoMessage("")) },
+        apiLoadBaseProducts: () => { dispatch(apiLoadBaseProducts()) },
     }
 }
 

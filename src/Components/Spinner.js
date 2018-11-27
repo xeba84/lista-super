@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Component.css';
+import './../styles/Component.css';
 import { connect } from 'react-redux';
 import { GridLoader } from 'react-spinners';
 

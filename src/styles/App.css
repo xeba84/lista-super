@@ -1,0 +1,18 @@
+.App {
+  /*background-color: brown;*/
+  text-align: center;
+  font-family: 'Roboto';
+  margin-top: 0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#navlist li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}

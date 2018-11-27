@@ -8,7 +8,7 @@ const getAllProducts = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(allProducts);
-      }, 3000);
+      }, 1500);
     });
 };
 
@@ -19,7 +19,7 @@ class ProductServiceApi {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve(allProducts);
-          }, 3000);
+          }, 1500);
         });
       }   
 }

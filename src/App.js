@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
 import ProductsContainer from './containers/ProductsContainer';
-import Spinner from './components/Spinner';
-import './App.css';
+import HomeContainer from './containers/HomeContainer';
+import ListsContainer from './containers/ListsContainer';
+import TabsContainer from './containers/TabsContainer';
+import './styles/App.css';
 
-class App extends Component {
-
-  //TODO: add {this.props.children} when implement react-router
+class AppTab extends Component {  
   render() {
     return (
       <div className="App">
-        <ProductsContainer />
-        <Spinner />
+        <h1 style={{ margin: "0px", padding: "0px" }}>APP BAR</h1>
+        <TabsContainer/>
+        <Route exact path="/" component={HomeContainer} />
+        <Route path="/Products" component={ProductsContainer} />
+        <Route path="/Lists" component={ListsContainer} />
       </div>
     )
   }
 }
 
-export default App;
+export default AppTab;

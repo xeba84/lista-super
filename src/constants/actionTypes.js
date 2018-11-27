@@ -9,3 +9,5 @@ export const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE';
 export const SHOW_WARN_MESSAGE = 'SHOW_WARN_MESSAGE';
 
 export const LOADING_DATA = 'LOADING_DATA';
+
+export const CHANGE_ROUTE = 'CHANGE_ROUTE';
