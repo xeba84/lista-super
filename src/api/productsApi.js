@@ -8,7 +8,7 @@ const getAllProducts = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(allProducts);
-      }, 1500);
+      }, 500);
     });
 };
 

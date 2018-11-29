@@ -29,8 +29,11 @@
 
 7-Agregar Pantalla de login
     a."Robar" diseño de algún lado
+        ->Dividir en componente y container
     b.Agregar AppBar para su manejo
+        ->Boton de logout e info de usuario
     c.Integrar con login fwim -> soap?
+        ->IEA... revisar cómo!
 
 8-Persistir la Lista de Productos... cómo? Node.js?... qué API?
     -Investigar sobre servidores de DB + servicios... la Nube?

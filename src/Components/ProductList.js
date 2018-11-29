@@ -16,7 +16,7 @@ class ProductList extends Component {
         return (
             <div 
                 ref={(d) => this.myDiv = d}
-                style={{ width: '80%', margin: '0 auto', overflowY:'auto', height:'75%', }}
+                style={{ width: '80%', margin: '0 auto', overflowY:'auto', height:'72%', }}
             >                
                 {this.renderList()}
             </div>

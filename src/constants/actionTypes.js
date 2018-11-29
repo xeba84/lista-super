@@ -11,3 +11,6 @@ export const SHOW_WARN_MESSAGE = 'SHOW_WARN_MESSAGE';
 export const LOADING_DATA = 'LOADING_DATA';
 
 export const CHANGE_ROUTE = 'CHANGE_ROUTE';
+
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
