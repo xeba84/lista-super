@@ -12,5 +12,7 @@ export const LOADING_DATA = 'LOADING_DATA';
 
 export const CHANGE_ROUTE = 'CHANGE_ROUTE';
 
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT';
+export const LOGIN_USER_REQUEST = 'LOGIN_USER_REQUEST';
+export const LOGIN_USER_RESPONSE = 'LOGIN_USER_RESPONSE';
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const API_LOGIN_USER = 'API_LOGIN_USER';

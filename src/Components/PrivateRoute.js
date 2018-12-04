@@ -4,16 +4,17 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import TabRouter from './../components/TabRouter';
+import { OK } from './../constants/answerTypes';
 
 
 class PrivateRoute extends Component {
     render() {
-        const { component: Component, isLogged, ...rest } = this.props;
+        const { component: Component, loginUserData, ...rest } = this.props;
         return (
             <Route
                 {...rest}
                 render={(props) => (
-                    !isLogged ?
+                    (loginUserData.status !== OK) ?
                         <div>
                             <TabRouter path={this.props.path} />
                             <br />
@@ -30,7 +31,7 @@ class PrivateRoute extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLogged: state.login.isLogged,
+        loginUserData: state.login.loginUserData,
     }
 }
 export default connect(mapStateToProps)(PrivateRoute);

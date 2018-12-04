@@ -1,13 +1,26 @@
-import { LOGIN, LOGOUT } from '../constants/actionTypes';
+import { LOGIN_USER_REQUEST, LOGIN_USER_RESPONSE, LOGOUT_USER } from '../constants/actionTypes';
+import { NOT_LOGGED } from './../constants/answerTypes';
 
-const initialState = {isLogged: false, user: "", pass: ""}
+const loginUserData = { status: NOT_LOGGED };
+const initialState = { isRequesting: false, user: "", pass: "", loginUserData }
 
 const loginReducer = (state = initialState, action) => {
-  switch (action.type) {    
-    case LOGIN:
-      return { ...state,  isLogged: true, user: action.payload.user, pass: action.payload.pass};
-      case LOGOUT:
-      return { ...state,  initialState };
+  switch (action.type) {
+    case LOGIN_USER_REQUEST:
+      return {
+        ...state,
+        isRequesting: true,
+        user: action.payload.user,
+        pass: action.payload.pass,
+      };
+    case LOGIN_USER_RESPONSE:
+      return {
+        ...state,
+        isRequesting: false,
+        loginUserData: action.payload.loginUserData,
+      };
+    case LOGOUT_USER:
+      return { ...state, initialState };
     default:
       return state;
   }

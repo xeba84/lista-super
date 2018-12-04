@@ -13,7 +13,8 @@
     "react-spinners": "^0.4.7",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^0.16.2"
+    "redux-saga": "^0.16.2",
+    "xml2js": "^0.4.19"
   },
   "scripts": {
     "start": "react-scripts start",

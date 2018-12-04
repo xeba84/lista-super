@@ -5,11 +5,6 @@ import Button from '@material-ui/core/Button';
 
 
 class ProductAdd extends Component {
-    constructor(props) {
-        super(props);
-        this.myOnAddProduct = this.props.onAddProduct;
-    };
-    
     render() { 
         return (
             <div style={{ position: 'fixed', bottom: '5px', width: '100%', height: '120px' }}>
@@ -34,7 +29,8 @@ class ProductAdd extends Component {
 
     handleOnclickAdd = (e) => {
         const newProduct = this.txtProducto.value;
-        if (this.myOnAddProduct(newProduct)){
+        const { onAddProduct } = this.props
+        if (onAddProduct(newProduct)){
             this.txtProducto.value = "";
         }
         this.txtProducto.select();

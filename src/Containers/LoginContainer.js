@@ -1,65 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import './../styles/Login.css';
-import { login } from '../actions/index';
 import WarnMessage from './../components/Message/WarnMessage';
+import Login from './../components/Login';
+import Spinner from './../components/Spinner';
 import { showWarnMessage } from '../actions/index';
+import { apiLoginUser as login } from '../actions/index';
+import { NOT_LOGGED } from './../constants/answerTypes';
 
 class LoginContainer extends Component {
     render() {
-        const { isLogged, currentPath, warnMessage, onWarnMessageClose } = this.props;
+        const { isRequesting, loginUserData, user, pass, currentPath, warnMessage, onWarnMessageClose } = this.props;
         const from = currentPath ? currentPath : "/";
         return (
-            !isLogged ?
-                <div className="login-div">
-                    <WarnMessage onWarnMessageClose={onWarnMessageClose} message={warnMessage} />
-                    <div className="login-container">
-                        <div className="login" id="login">
-                            <header>
-                                <h4>Login</h4>
-                            </header>
-                            <form className="login-form">
-                                <input 
-                                    ref={field => this.txtUser = field}
-                                    type="text" 
-                                    className="login-input" 
-                                    placeholder="Usuario" 
-                                    required autoFocus/>
-                                <input 
-                                    ref={field => this.txtPass = field}
-                                    type="password" 
-                                    className="login-input" 
-                                    placeholder="Contraseña" 
-                                    required autoComplete="true" />
-                                <div className="submit-container">
-                                    <button 
-                                        onClick={(e) => this.loginHandler(e)} 
-                                        className="login-button">LOGIN</button>
-                                </div>
-                            </form>
-                        </div>
+            (!isRequesting) ?
+                (loginUserData.status === NOT_LOGGED) ?
+                    <div>
+                        <WarnMessage onWarnMessageClose={onWarnMessageClose} message={warnMessage} />
+                        <Login onLoginClick={this.handleLogin} user={user} pass={pass} />
                     </div>
-                </div>
+                    :
+                    <div>
+                        <Redirect to={from} />
+                    </div>
                 :
-                <div>
-                    <Redirect to={from} />
-                </div>
+                <Spinner isLoading={isRequesting} size={30} message="Validando..."/>
         );
     }
 
-    loginHandler = (e) => {
-        e.preventDefault();        
-        const user = this.txtUser.value;
-        const pass = this.txtPass.value;
+    handleLogin = (user, pass) => {
         const { showWarnMessage } = this.props;
-        
-        if (!user){
-            showWarnMessage("Por favor ingrese un Usuario")
-            this.txtUser.focus();
-        }else if (!pass) {
-            showWarnMessage("Por favor ingrese una Contraseña")
-            this.txtPass.focus();
+        if (!user) {
+            showWarnMessage("Por favor ingrese un Usuario");
+        } else if (!pass) {
+            showWarnMessage("Por favor ingrese una Contraseña");
         } else {
             const { login } = this.props;
             login(user, pass);
@@ -67,11 +41,14 @@ class LoginContainer extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        isLogged: state.login.isLogged,
+        loginUserData: state.login.loginUserData,
         currentPath: state.changingRoute.currentPath,
         warnMessage: state.popUpMessages.warnMessage,
+        isRequesting: state.login.isRequesting,
+        user: state.login.user,
+        pass: state.login.pass,
     }
 }
 
