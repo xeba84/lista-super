@@ -14,7 +14,7 @@ const tabLinks = [
 class TabsContainer extends Component {
     render() {
         const { currentPath } = this.props;
-        const selectedTab = currentPath ? tabLinks.findIndex((l) => l.to === currentPath) : 0;
+        const selectedTab = currentPath ? tabLinks.findIndex((l) => l.to === currentPath) : false;
         return (
             <div>
                 <Tabs

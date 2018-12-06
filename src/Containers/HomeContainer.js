@@ -6,7 +6,7 @@ class HomeContainer extends Component {
     render() {
         return (
             <div>
-                <h2 style={{color:"rgb(118, 116, 243)"}} >Bienvenido a la Lista de Mandados</h2>
+                <h2 style={{color:"rgb(118, 116, 243)"}} >Lista de Mandados</h2>
                 <TabRouter path={this.props.match.path} />
             </div>
         );

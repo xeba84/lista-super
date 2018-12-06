@@ -5,6 +5,7 @@
     align-items: center;
     position: relative;
     min-height: 60%;
+    margin-top: 20px;
   }
 
 .login-container {

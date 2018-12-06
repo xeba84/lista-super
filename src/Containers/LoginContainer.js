@@ -6,7 +6,7 @@ import Login from './../components/Login';
 import Spinner from './../components/Spinner';
 import { showWarnMessage } from '../actions/index';
 import { apiLoginUser as login } from '../actions/index';
-import { NOT_LOGGED } from './../constants/answerTypes';
+import { OK } from './../constants/answerTypes';
 
 class LoginContainer extends Component {
     render() {
@@ -14,7 +14,7 @@ class LoginContainer extends Component {
         const from = currentPath ? currentPath : "/";
         return (
             (!isRequesting) ?
-                (loginUserData.status === NOT_LOGGED) ?
+                (loginUserData.status !== OK) ?
                     <div>
                         <WarnMessage onWarnMessageClose={onWarnMessageClose} message={warnMessage} />
                         <Login onLoginClick={this.handleLogin} user={user} pass={pass} />
@@ -38,6 +38,11 @@ class LoginContainer extends Component {
             const { login } = this.props;
             login(user, pass);
         }
+    }
+
+    componentWillUnmount() {
+        const { onWarnMessageClose } = this.props;
+        onWarnMessageClose();
     }
 }
 

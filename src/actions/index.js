@@ -3,7 +3,7 @@ import {
     SHOW_INFO_MESSAGE, LOADING_DATA, SHOW_WARN_MESSAGE,
     LOAD_BASE_PRODUCTS, API_LOAD_BASE_PRODUCTS, 
     CHANGE_ROUTE,
-    LOGIN_USER_REQUEST, LOGIN_USER_RESPONSE, API_LOGIN_USER, } from '../constants/actionTypes';
+    LOGIN_USER_REQUEST, LOGIN_USER_RESPONSE, API_LOGIN_USER, LOGOUT_USER, } from '../constants/actionTypes';
 
 //PRODUCTS
 export const apiLoadBaseProducts = products => ({
@@ -55,4 +55,7 @@ export const loginUserResponse = (loginUserData) => ({
 export const apiLoginUser = (user, pass) => ({
     type: API_LOGIN_USER,
     payload: {user, pass}
+});
+export const logoutUser = () => ({
+    type: LOGOUT_USER
 });

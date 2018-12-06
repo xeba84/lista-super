@@ -6,20 +6,21 @@ import ListsContainer from './containers/ListsContainer';
 import TabsContainer from './containers/TabsContainer';
 import LoginContainer from './containers/LoginContainer';
 import PrivateRoute from './components/PrivateRoute';
+import TopBar from './components/TopBar';
 import './styles/App.css';
 
-class AppTab extends Component {  
+class AppTab extends Component {
   render() {
     return (
       <div className="App">
-        <h1 style={{ margin: "0px", padding: "0px" }}>APP BAR</h1>
-        <TabsContainer/>
+        <TopBar />
+        <TabsContainer />
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route path="/Products" component={ProductsContainer} />
           <PrivateRoute path="/Lists" component={ListsContainer} />
           <Route path="/Login" component={LoginContainer} />
-          <Route render={() => (<div><h2 style={{color:"red"}}>La página solicitada NO existe</h2></div>)}/>          
+          <Route render={() => (<div><h2 style={{ color: "red" }}>La página solicitada NO existe</h2></div>)} />
         </Switch>
       </div>
     )

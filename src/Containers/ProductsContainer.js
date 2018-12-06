@@ -29,7 +29,7 @@ class ProductsContainer extends Component {
                 <TabRouter path={this.props.match.path} />                
             </div>
             :
-            <Spinner isLoading={isLoadingData} size={40} message="Cargando..."/>
+            <Spinner isLoading={isLoadingData} size={30} message="Cargando..."/>
         );
     }
 

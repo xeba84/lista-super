@@ -20,7 +20,7 @@ const loginReducer = (state = initialState, action) => {
         loginUserData: action.payload.loginUserData,
       };
     case LOGOUT_USER:
-      return { ...state, initialState };
+      return initialState;
     default:
       return state;
   }

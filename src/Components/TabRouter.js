@@ -23,7 +23,6 @@ class TabRouter extends Component {
 const mapStateToProps = state => {
     return {
         currentPath: state.changingRoute.currentPath,
-        isLogged: state.login.isLogged,
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -31,5 +30,4 @@ const mapDispatchToProps = dispatch => {
         changeRoute: path => { dispatch(changeRoute(path)) },
     }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(TabRouter);

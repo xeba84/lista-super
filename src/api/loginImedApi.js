@@ -42,6 +42,7 @@ const setErrorLoginObject = (error) => {
         guid: "",
         userName: "",
     };
+    console.log(error);
     return login;
 }
 
