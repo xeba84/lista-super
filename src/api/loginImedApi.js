@@ -16,7 +16,7 @@ const loginUser = (user, pass) => {
             '<fwk:System>' + SYSTEM_NAME + '</fwk:System>' +
             '</fwk:User></log:LoginUser></soapenv:Body></soapenv:Envelope>'
     }
-    return fetch('http://test.imed.com.ar/Login/Services/Login.asmx', options)
+    return fetch(`${process.env.REACT_APP_LOGIN_IMED_ROUTE}/Login/Services/Login.asmx`, options)
     .then(response => response.text())
     .then(xmlData => parseString(xmlData, (err, result) => resData = result['soap:Envelope']['soap:Body'][0].LoginUserResponse[0].LoginUserResult[0]))
     .then(() => setLoginObject(resData.Response[0], resData.Content[0]))

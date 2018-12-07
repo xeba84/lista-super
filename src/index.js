@@ -12,6 +12,10 @@ import Root from './Root';
 
 import AppFetch from './AppFetch';
 
+console.log(process.env.NODE_ENV);
+console.log(process.env.REACT_APP_API_KEY);
+console.log(process.env.PUBLIC_URL);
+
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

@@ -34,7 +34,14 @@
         ->Boton de logout e info de usuario
     c.Integrar con login fwim -> soap?
         ->IEA... revisar cómo!
-    d.Manejar ambiente de las URLs de las APIs por "script de arranque"
+
+
+8.Desplegar..
+    -Manejar ambiente de las URLs de las APIs por "script de arranque"
+    -Deplegar en GitHub
+    ->//"homepage" : "http://xeba84.github.io/lista-super",
+
+
 
 8-Persistir la Lista de Productos... cómo? Node.js?... qué API?
     -Investigar sobre servidores de DB + servicios... la Nube?
