@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "http://xeba84.github.io/lista-super/precache-manifest.2a1bb6a90fb17e5f7b921436344cd1b0.js"
+  "https://xeba84.github.io/lista-super/precache-manifest.1c278bdfaa459e9990012ca886d10419.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("http://xeba84.github.io/lista-super/index.html", {
+workbox.routing.registerNavigationRoute("https://xeba84.github.io/lista-super/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

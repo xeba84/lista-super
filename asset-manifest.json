@@ -1,13 +1,13 @@
 {
-  "main.css": "http://xeba84.github.io/lista-super/static/css/main.68baacaf.chunk.css",
-  "main.js": "http://xeba84.github.io/lista-super/static/js/main.6f017719.chunk.js",
-  "main.js.map": "http://xeba84.github.io/lista-super/static/js/main.6f017719.chunk.js.map",
-  "static/js/1.3042a82e.chunk.js": "http://xeba84.github.io/lista-super/static/js/1.3042a82e.chunk.js",
-  "static/js/1.3042a82e.chunk.js.map": "http://xeba84.github.io/lista-super/static/js/1.3042a82e.chunk.js.map",
-  "runtime~main.js": "http://xeba84.github.io/lista-super/static/js/runtime~main.d0bccaba.js",
-  "runtime~main.js.map": "http://xeba84.github.io/lista-super/static/js/runtime~main.d0bccaba.js.map",
-  "static/css/main.68baacaf.chunk.css.map": "http://xeba84.github.io/lista-super/static/css/main.68baacaf.chunk.css.map",
-  "index.html": "http://xeba84.github.io/lista-super/index.html",
-  "precache-manifest.2a1bb6a90fb17e5f7b921436344cd1b0.js": "http://xeba84.github.io/lista-super/precache-manifest.2a1bb6a90fb17e5f7b921436344cd1b0.js",
-  "service-worker.js": "http://xeba84.github.io/lista-super/service-worker.js"
+  "main.css": "https://xeba84.github.io/lista-super/static/css/main.68baacaf.chunk.css",
+  "main.js": "https://xeba84.github.io/lista-super/static/js/main.96ef9d4e.chunk.js",
+  "main.js.map": "https://xeba84.github.io/lista-super/static/js/main.96ef9d4e.chunk.js.map",
+  "static/js/1.3042a82e.chunk.js": "https://xeba84.github.io/lista-super/static/js/1.3042a82e.chunk.js",
+  "static/js/1.3042a82e.chunk.js.map": "https://xeba84.github.io/lista-super/static/js/1.3042a82e.chunk.js.map",
+  "runtime~main.js": "https://xeba84.github.io/lista-super/static/js/runtime~main.76ab2839.js",
+  "runtime~main.js.map": "https://xeba84.github.io/lista-super/static/js/runtime~main.76ab2839.js.map",
+  "static/css/main.68baacaf.chunk.css.map": "https://xeba84.github.io/lista-super/static/css/main.68baacaf.chunk.css.map",
+  "index.html": "https://xeba84.github.io/lista-super/index.html",
+  "precache-manifest.1c278bdfaa459e9990012ca886d10419.js": "https://xeba84.github.io/lista-super/precache-manifest.1c278bdfaa459e9990012ca886d10419.js",
+  "service-worker.js": "https://xeba84.github.io/lista-super/service-worker.js"
 }
