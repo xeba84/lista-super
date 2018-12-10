@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "https://xeba84.github.io/lista-super/static/js/runtime~main.76ab2839.js"
   },
   {
-    "revision": "c2b280b180e62ba3e916",
-    "url": "https://xeba84.github.io/lista-super/static/js/main.c2b280b1.chunk.js"
+    "revision": "d853b1ed4e6bef51ae32",
+    "url": "https://xeba84.github.io/lista-super/static/js/main.d853b1ed.chunk.js"
   },
   {
     "revision": "3042a82ec7635aa07461",
     "url": "https://xeba84.github.io/lista-super/static/js/1.3042a82e.chunk.js"
   },
   {
-    "revision": "c2b280b180e62ba3e916",
+    "revision": "d853b1ed4e6bef51ae32",
     "url": "https://xeba84.github.io/lista-super/static/css/main.68baacaf.chunk.css"
   },
   {
-    "revision": "d802d7878fe961cdd7573f4dd2732a67",
+    "revision": "d6ce0172a0bf43eb9f1e4ff6684efac1",
     "url": "https://xeba84.github.io/lista-super/index.html"
   }
 ];
