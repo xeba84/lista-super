@@ -8,6 +8,9 @@ class HomeContainer extends Component {
             <div>
                 <h2 style={{color:"rgb(118, 116, 243)"}} >Lista de Mandados</h2>
                 <TabRouter path={this.props.match.path} />
+                <div style={{textAlign: "center", }}>
+                    <h5 style={{color:"rgb(118, 116, 243)"}} >{process.env.REACT_APP_VERSION}</h5>
+                </div>
             </div>
         );
     }

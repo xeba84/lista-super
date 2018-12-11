@@ -9,7 +9,7 @@ class Root extends Component {
         const store = this.props.store;
         return (
             <Provider store={store}>
-                <Router basename={process.env.PUBLIC_URL}>
+                <Router basename={process.env.REACT_APP_HOME_PAGE}>
                     <Route path="/" component={App} />
                 </Router>
             </Provider>

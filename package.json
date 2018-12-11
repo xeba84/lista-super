@@ -1,8 +1,7 @@
 {
   "name": "lista-super",
-  "version": "0.1.0",
+  "version": "0.1.25",
   "private": true,
-  "homepage": "http://xeba84.github.io/lista-super",
   "dependencies": {
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
@@ -21,11 +20,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:ip": "env-cmd ./environment/.env.ip react-scripts start",
+    "start:ip": "env-cmd ./environment/ip.env react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy:github": "env-cmd ./environment/github.env react-scripts build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

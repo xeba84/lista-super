@@ -15,13 +15,15 @@ import AppFetch from './AppFetch';
 console.log(process.env.NODE_ENV);
 console.log(process.env.REACT_APP_API_KEY);
 console.log(process.env.PUBLIC_URL);
+//console.log(process.env.REACT_APP_HOME_PAGE);
+console.log(process.env.REACT_APP_VERSION);
 
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
     rootReducer,
     compose (applyMiddleware(sagaMiddleware, logger) ,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+    )//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );
 
 sagaMiddleware.run(rootSaga);

@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 class ProductAdd extends Component {
     render() { 
         return (
-            <div style={{ position: 'fixed', bottom: '5px', width: '100%', height: '120px' }}>
+            <div style={{ position: 'relative', bottom: '5px', width: '100%', height: '120px' }}>
                 <div>
                     <TextField label="Producto" margin="normal" variant="outlined" autoFocus
                         inputProps={{ maxLength: 20 }}
