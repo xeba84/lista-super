@@ -19,11 +19,11 @@ class ProductsContainer extends Component {
     }
     
     render() {
-        const { products, infoMessage, onInfoMessageClose, removeProduct, isLoadingData } = this.props;       
+        const { products, infoMessage, onInfoMessageClose, removeProduct, isLoadingData, newProduct } = this.props;       
         return (
             !isLoadingData ?
             <div className="Container">
-                <ProductList onRemoveProduct={removeProduct} products={products} />
+                <ProductList onRemoveProduct={removeProduct} products={products} newProduct={newProduct} />
                 <ProductAdd onAddProduct={this.handleAddProduct} />
                 <InfoMessage onInfoMessageClose={onInfoMessageClose} message={infoMessage} />           
                 <TabRouter path={this.props.match.path} />                
@@ -57,7 +57,8 @@ class ProductsContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.products,
+        products: state.products.list,
+        newProduct: state.products.new,
         infoMessage: state.popUpMessages.infoMessage,
         isLoadingData: state.loadingMessages.isLoadingData,
     }

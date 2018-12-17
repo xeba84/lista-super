@@ -2,16 +2,22 @@ import { ADD_NEW_PRODUCT, REMOVE_NEW_PRODUCT, LOAD_BASE_PRODUCTS} from '../const
 
 const sortProductList = (a, b) => (a < b) ? -1 : 1;
 
-const productsReducer = (state = [], action) => {
+const initialState = {list: [], new: ""}
+
+const productsReducer = (state = initialState, action) => {
   switch (action.type) {
+    
     case ADD_NEW_PRODUCT:
       const { newProduct } = action.payload;
-      return [...state, newProduct].sort(sortProductList);
+      return { list: [...state.list, newProduct].sort(sortProductList), new: newProduct };
+    
     case REMOVE_NEW_PRODUCT:
       const { indexProduct } = action.payload;      
-      return [...state.slice(0, indexProduct), ...state.slice(indexProduct+1)].sort(sortProductList);
+      return { list: [...state.list.slice(0, indexProduct), ...state.list.slice(indexProduct+1)].sort(sortProductList), new:""  }
+    
     case LOAD_BASE_PRODUCTS:
-      return action.payload;
+      return { list: action.payload, new: "" };
+    
     default:
       return state;
   }

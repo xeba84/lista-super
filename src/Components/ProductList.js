@@ -14,25 +14,26 @@ class ProductList extends Component {
 
     render() {
         return (
-            <div 
+            <div
                 ref={(d) => this.myDiv = d}
-                style={{ width: '80%', margin: '0 auto', overflowY:'auto', height:'72%', }}
-            >                
+                style={{ width: '80%', margin: '0 auto', overflowY: 'auto', height: '72%', }}
+            >
                 {this.renderList()}
             </div>
         );
     }
 
     componentDidUpdate() {
-        this.myDiv.scrollTop = this.myDiv.scrollHeight;        
+        this.myDiv.scrollTop = this.myDiv.scrollHeight;
+        this.scrollToNewProduct();
     }
 
     renderList = () => {
-        const { products } = this.props;        
-        const productLst = products.map((product, index) => 
-                this.renderItem(product, index));
+        const { products } = this.props;
+        const productLst = products.map((product, index) =>
+            this.renderItem(product, index));
         return (
-            productLst.length > 0 && 
+            productLst.length > 0 &&
             <List dense>
                 <Divider />
                 {productLst}
@@ -41,9 +42,27 @@ class ProductList extends Component {
     };
 
     renderItem = (product, index) => {
+        const { newProduct } = this.props;
+        if (product === newProduct) {
+            return (
+                <div key={product} ref={(litem) => this.LItemRef = litem} style={{backgroundColor:"#f5f5f5"}}>
+                   {this.getListItem(product, index)}
+                </div>
+            );
+        }
+        else {
+            return (
+                <div key={product}>
+                   {this.getListItem(product, index)}
+                </div>
+            );
+        }
+    };
+
+    getListItem(product, index) {
         const { onRemoveProduct } = this.props;
         return (
-            <ListItem key={product} divider={true}>
+            <ListItem divider={true}>
                 <ListItemAvatar>
                     <Avatar>
                         <AddShoppingCart />
@@ -57,12 +76,19 @@ class ProductList extends Component {
                 </ListItemSecondaryAction>
             </ListItem>
         );
-    };
+    }
+
+    scrollToNewProduct() {
+        if (this.LItemRef) {
+            this.LItemRef.scrollIntoView({ block: "end", behavior: "instant" });
+        }
+    }
 }
 
 ProductList.propTypes = {
     onRemoveProduct: PropTypes.func.isRequired,
-    products: PropTypes.array.isRequired
+    products: PropTypes.array.isRequired,
+    newProduct: PropTypes.string.isRequired,
 };
 
 export default ProductList;

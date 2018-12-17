@@ -1,6 +1,6 @@
 {
   "name": "lista-super",
-  "version": "0.1.25",
+  "version": "0.1.28",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.2.0",
