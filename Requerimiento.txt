@@ -42,11 +42,11 @@
     ->//"homepage" : "http://xeba84.github.io/lista-super",
 
 
-
-8-Persistir la Lista de Productos... cómo? Node.js?... qué API?
-    -Investigar sobre servidores de DB + servicios... la Nube?
-    -Publicar la app sin persistencia?
-
+9....
+    -Login obligatorio al ingresar -> En al Usuario Ingresado, tomar los Productos, Listas y Mandados.
+    -Desarrollar pantala de "Listas" -> Confeccionar una Lista de Compras en base  a los Productos disponibles; Guardar con FechaHora como nombre.
+    -Desarrollar pantalla de "Mandados" -> En base a una Lista existente, comenzar el Mandado; Agregar posibilidad de cargar Cantidad y Precio; Mostrar Sumatoria de Precios
+  
 _______________________________________________________________________________________
 PANTALLAS:
 (*)Menu... integrado tipo mobile
