@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Link } from "react-router-dom";
-import TabRouter from './../components/TabRouter';
+import TabRouter from '../components/TabRouter';
 import './../styles/Container.css';
 
 const lists = ["Lista1", "Lista2", "Lista3", "Lista4", "Lista5",];

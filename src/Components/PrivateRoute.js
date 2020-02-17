@@ -3,8 +3,8 @@ import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
-import TabRouter from './../components/TabRouter';
-import { OK } from './../constants/answerTypes';
+import TabRouter from './TabRouter';
+import { OK } from '../constants/answerTypes';
 
 
 class PrivateRoute extends Component {

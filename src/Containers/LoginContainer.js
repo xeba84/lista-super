@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import WarnMessage from './../components/Message/WarnMessage';
-import Login from './../components/Login';
-import Spinner from './../components/Spinner';
+import WarnMessage from '../components/Message/WarnMessage';
+import Login from '../components/Login';
+import Spinner from '../components/Spinner';
 import { showWarnMessage } from '../actions/index';
 import { apiLoginUser as login } from '../actions/index';
-import { OK } from './../constants/answerTypes';
+import { OK } from '../constants/answerTypes';
 
 class LoginContainer extends Component {
     render() {

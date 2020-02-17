@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import { logoutUser } from '../actions/index';
-import { OK } from './../constants/answerTypes';
+import { OK } from '../constants/answerTypes';
 
 class TopBar extends Component {
     render() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TabRouter from './../components/TabRouter';
+import TabRouter from '../components/TabRouter';
 import './../styles/Container.css';
 
 class HomeContainer extends Component {

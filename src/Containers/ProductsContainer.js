@@ -6,8 +6,8 @@ import InfoMessage from '../components/Message/InfoMessage';
 import './../styles/Container.css';
 import { addProduct, showInfoMessage, removeProduct, apiLoadBaseProducts } from '../actions/index';
 import { InfoMessages } from '../constants/messages';
-import TabRouter from './../components/TabRouter';
-import Spinner from './../components/Spinner';
+import TabRouter from '../components/TabRouter';
+import Spinner from '../components/Spinner';
 
 class ProductsContainer extends Component {
 

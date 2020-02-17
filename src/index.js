@@ -9,28 +9,37 @@ import './styles/index.css';
 import rootReducer from './reducers/index';
 import rootSaga from './sagas/index';
 import Root from './Root';
-
+import storage from 'redux-persist/lib/storage'
+import { persistStore, persistReducer } from 'redux-persist';
 import AppFetch from './AppFetch';
-
-console.log(process.env.REACT_APP_DEPLOY_INFO);
-console.log(process.env.REACT_APP_VERSION);
 
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-    rootReducer,
-    compose (applyMiddleware(sagaMiddleware, /*logger*/) ,
-    )//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-);
+
+const persistConfig = {
+    key: 'root',
+    storage: storage,
+}
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+const store = createStore(persistedReducer, compose(applyMiddleware(sagaMiddleware)));
+const persistor = persistStore(store);
+
+// const store = createStore(
+//     rootReducer,
+//     compose(applyMiddleware(sagaMiddleware) ,
+//     )//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// );
+
+//console.log('store', store);
 
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-    <Root store={store} />, 
+    <Root store={store} persistor={persistor} />,
     //<AppFetch />,
     //<AppScroll />,
     document.getElementById('root')
-    );
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
